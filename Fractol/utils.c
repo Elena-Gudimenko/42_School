@@ -1,28 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/06 18:09:46 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/06 18:19:13 by elvictor         ###   ########.fr       */
+/*   Created: 2025/05/06 18:20:14 by elvictor          #+#    #+#             */
+/*   Updated: 2025/05/06 18:22:14 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	main(int argc, char **argv)
-{
-
-	if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)
-		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
-	{
-
-	}
-	else
-	{
-		ft_putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
-		exit(EXIT_FAILURE);
-	}
-}
