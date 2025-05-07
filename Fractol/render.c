@@ -6,11 +6,12 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:26:08 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/07 16:12:59 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/07 16:58:08 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include "minilibx-linux/mlx.h"
 
 static void	my_pixel_put(int x, int y, t_img *img, int color)
 {

@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:26:30 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/07 15:53:40 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/07 17:07:38 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	data_init(t_fractal *fractal)
 	fractal->escape_value = 4;
 	fractal->max_iteration = 42;
 }
+
 
 void	fractal_init(t_fractal *fractal)
 {
@@ -50,5 +51,6 @@ void	fractal_init(t_fractal *fractal)
 												&fractal->img.bits_per_pixels,
 												&fractal->img.line_len,
 												&fractal->img.endian);
+	events_init(fractal);
 	data_init(fractal);
 }
