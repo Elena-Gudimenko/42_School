@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:26:08 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/07 16:58:08 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/08 12:21:02 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	my_pixel_put(int x, int y, t_img *img, int color)
 {
 	int	offset;
 
-	offset = (y * img->line_len) + (x + (img->bits_per_pixels / 8));
+	offset = (y * img->line_len) + (x * (img->bits_per_pixels / 8));
 	*(unsigned int *)(img->pixels_ptr + offset) = color;
 }	
 
