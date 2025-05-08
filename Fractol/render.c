@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:26:08 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/08 16:53:05 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/08 17:46:38 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 		}
 		++i;
 	}
-	my_pixel_put(x, y, &fractal->img, PSYCHEDELIC_PURPLE);
+	my_pixel_put(x, y, &fractal->img, LIME_SHOCK);
 }
 
 void	fractal_render(t_fractal *fractal)
