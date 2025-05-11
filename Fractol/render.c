@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:26:08 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/08 17:46:38 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/08 21:28:56 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	mandel_vs_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 	else
 	{
 		c->x = z->x;
-		c->y = z->y;	
+		c->y = z->y;
 	}
 }
 
@@ -43,21 +43,21 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-	z.x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom) + fractal->shift_x;
-	z.y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom) + fractal->shift_y;
+	z.x = (map(x, -2, +2, WIDTH) * fractal->zoom) + fractal->shift_x;
+	z.y = (map(y, +2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
 	mandel_vs_julia(&z, &c, fractal);
 	while (i < fractal->max_iteration)
 	{
 		z = sum_complex(square_complex(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
 		{
-			color = map(i, BLACK, WHITE, 0, fractal->max_iteration);
+			color = map(i, BLACK, WHITE, fractal->max_iteration);
 			my_pixel_put(x, y, &fractal->img, color);
 			return ;
 		}
 		++i;
 	}
-	my_pixel_put(x, y, &fractal->img, LIME_SHOCK);
+	my_pixel_put(x, y, &fractal->img, NEON_ORANGE);
 }
 
 void	fractal_render(t_fractal *fractal)

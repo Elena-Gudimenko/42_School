@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 18:09:46 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/08 17:57:00 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/08 21:39:51 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,13 @@
 int	main(int argc, char **argv)
 {
 	t_fractal	fractal;
-	if (argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)
-				|| argc == 4 && !ft_strncmp(argv[1], "julia", 5))
+	char		*error_message1;
+	char		*error_message2;
+
+	error_message1 = "Please enter \n\t\"./fractol mandelbrot\" or";
+	error_message2 = "\n\t\"./fractol julia <value_1> <value_2>\"\n";
+	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10))
+		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
 	{
 		fractal.name = argv[1];
 		if (!ft_strncmp(fractal.name, "julia", 5))
@@ -30,7 +35,8 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		ft_putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
+		ft_putstr_fd(error_message1, STDERR_FILENO);
+		ft_putstr_fd(error_message2, STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
 }

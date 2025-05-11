@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 13:26:30 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/08 17:02:17 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/08 21:28:00 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	malloc_error(void)
 static void	data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 4;
-	fractal->max_iteration = 100;
+	fractal->max_iteration = 40;
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;
@@ -34,9 +34,9 @@ static void	events_init(t_fractal *fractal)
 		ButtonPress, ButtonPressMask, mouse_handler, fractal);
 	mlx_hook(fractal->mlx_window,
 		DestroyNotify, StructureNotifyMask, close_handler, fractal);
-	mlx_hook(fractal->mlx_window,
-			MotionNotify, PointerMotionMask, julia_track, fractal);
 }
+	//mlx_hook(fractal->mlx_window,
+	//	MotionNotify, PointerMotionMask, julia_track, fractal);
 
 void	fractal_init(t_fractal *fractal)
 {
@@ -63,6 +63,6 @@ void	fractal_init(t_fractal *fractal)
 	fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr,
 			&fractal->img.bits_per_pixels, &fractal->img.line_len,
 			&fractal->img.endian);
-	events_init(fractal);
 	data_init(fractal);
+	events_init(fractal);
 }
