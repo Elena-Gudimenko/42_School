@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:40:57 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/12 15:51:20 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/13 17:01:54 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	stack_init(t_stack_node **a, char **argv, bool flag_agrc_2)
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
 			error_free(a, argv, flag_agrc_2);
-		if (error_repetition(*a, (int)nbr))
+		if (error_duplicate(*a, (int)nbr))
 			error_free(a, argv, flag_agrc_2);
 		append_node(a, (int)nbr);
 		++i;
