@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 08:44:38 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/13 11:41:00 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/14 11:05:24 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,6 @@ t_stack_node	*find_last_node(t_stack_node *head)
 	while (head->next)
 		head = head->next;
 	return (head);
-}
-
-void	append_node(t_stack_node **stack, int nbr)
-{
-	t_stack_node	*node;
-	t_stack_node	*last_node;
-
-	if (stack == NULL)
-		return ;
-	node = malloc(sizeof(t_stack_node));
-	if (node == NULL)
-		return ;
-	node->next = NULL;
-	node->value = nbr;
-	if (*stack == NULL)
-	{
-		*stack = node;
-		node->prev = NULL;
-	}
-	else
-	{
-		last_node = find_last_node(*stack);
-		last_node->next = node;
-		node->prev = last_node;
-	}
 }
 
 t_stack_node	*find_smallest(t_stack_node *stack)
@@ -64,6 +39,26 @@ t_stack_node	*find_smallest(t_stack_node *stack)
 		stack = stack->next;
 	}
 	return (smallest_node);
+}
+
+t_stack_node	*find_biggest(t_stack_node *stack)
+{
+	int				biggest;
+	t_stack_node	*biggest_node;
+
+	if (stack == NULL)
+		return (NULL);
+	biggest = INT_MIN;
+	while (stack)
+	{
+		if (stack->value > biggest)
+		{
+			biggest = stack->value;
+			biggest_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (biggest_node);
 }
 
 t_stack_node	*return_cheapest(t_stack_node *stack)

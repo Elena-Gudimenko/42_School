@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tiny_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/12 09:00:32 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/14 10:20:09 by elvictor         ###   ########.fr       */
+/*   Created: 2025/05/14 10:27:17 by elvictor          #+#    #+#             */
+/*   Updated: 2025/05/14 14:57:46 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdbool.h>
 
-int	main(int argc, char **argv)
+bool	stack_sorted(t_stack_node *stack)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
-
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if (stack == NULL)
 		return (1);
-	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	stack_init(&a, argv + 1, argc == 2);
-	if (!stack_sorted(a))
+	while (stack->next)
 	{
-		if (stack_len(a) == 2)
-			sa(&a, false);
-		else if (stack_len(a) == 3)
-			tiny_sort(&a);
-		else
-			push_swap(&a, &b);
+		if (stack->value > stack->next->value)
+			return (false);
+		stack = stack->next;
 	}
-	free_stack(&a);
+	return (true);
+}
+
+void	tiny_sort(t_stack_node **a)
+{
+	t_stack_node	*biggest_node;
+
+	biggest_node = find_biggest(*a);
+	if (biggest_node == *a)
+		ra(a, false);
+	else if ((*a)->next == biggest_node)
+		rra(a, false);
+	if ((*a)->value > (*a)->next->value)
+		sa(a, false);
 }

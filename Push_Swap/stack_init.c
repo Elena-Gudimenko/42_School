@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:40:57 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/13 17:01:54 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/14 11:05:50 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,31 @@ static long	ft_atol(const char *str)
 		i++;
 	}
 	return (num * sign);
+}
+
+void	append_node(t_stack_node **stack, int nbr)
+{
+	t_stack_node	*node;
+	t_stack_node	*last_node;
+
+	if (stack == NULL)
+		return ;
+	node = malloc(sizeof(t_stack_node));
+	if (node == NULL)
+		return ;
+	node->next = NULL;
+	node->value = nbr;
+	if (*stack == NULL)
+	{
+		*stack = node;
+		node->prev = NULL;
+	}
+	else
+	{
+		last_node = find_last_node(*stack);
+		last_node->next = node;
+		node->prev = last_node;
+	}
 }
 
 void	stack_init(t_stack_node **a, char **argv, bool flag_agrc_2)

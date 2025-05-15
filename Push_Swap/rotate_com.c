@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:47:59 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/13 14:51:38 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/14 09:04:31 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	rotate(t_stack_node **stack)
 	int				len;
 
 	len = stack_len(*stack);
-	if (NULL == stack || NULL == *stack || 1 == len)
+	if (stack == NULL || *stack == NULL || len == 1)
 		return ;
 	last_node = find_last_node(*stack);
 	last_node->next = *stack;

@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 09:01:47 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/13 17:07:25 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/15 15:47:28 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@
 typedef struct s_stack_node
 {
 	int					value;
-	int					index;
-	int					final_index;
+	int					current_position;
 	int					push_price;
 	bool				above_median;
 	bool				cheapest;
@@ -33,14 +32,28 @@ typedef struct s_stack_node
 
 char			**ft_split(char *str, char separator);
 void			stack_init(t_stack_node **a, char **argv, bool flag_agrc_2);
+bool			stack_sorted(t_stack_node *stack);
+void			push_swap(t_stack_node **a, t_stack_node **b);
+void			init_nodes(t_stack_node *a, t_stack_node *b);
+void			set_current_position(t_stack_node *stack);
+void			set_price(t_stack_node *a, t_stack_node *b);
+void			set_cheapest(t_stack_node *b);
 
 void			append_node(t_stack_node **stack, int nbr);
 t_stack_node	*find_last_node(t_stack_node *head);
 t_stack_node	*find_smallest(t_stack_node *stack);
+t_stack_node	*find_biggest(t_stack_node *stack);
 t_stack_node	*return_cheapest(t_stack_node *stack);
 int				stack_len(t_stack_node *stack);
 
-/*commans*/
+
+
+
+/*algoritms*/
+void			tiny_sort(t_stack_node **a);
+
+
+/*commands*/
 void			sa(t_stack_node **a, bool checker);
 void			sb(t_stack_node **b, bool checker);
 void			ss(t_stack_node **a, t_stack_node **b, bool checker);
