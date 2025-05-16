@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 08:44:38 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/14 11:05:24 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/16 15:20:14 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,26 +39,6 @@ t_stack_node	*find_smallest(t_stack_node *stack)
 		stack = stack->next;
 	}
 	return (smallest_node);
-}
-
-t_stack_node	*find_biggest(t_stack_node *stack)
-{
-	int				biggest;
-	t_stack_node	*biggest_node;
-
-	if (stack == NULL)
-		return (NULL);
-	biggest = INT_MIN;
-	while (stack)
-	{
-		if (stack->value > biggest)
-		{
-			biggest = stack->value;
-			biggest_node = stack;
-		}
-		stack = stack->next;
-	}
-	return (biggest_node);
 }
 
 t_stack_node	*return_cheapest(t_stack_node *stack)

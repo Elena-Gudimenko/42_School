@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 15:01:48 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/14 09:39:10 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/16 10:13:09 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,3 @@ void	pb(t_stack_node **b, t_stack_node **a, bool checker)
 	if (!checker)
 		write(1, "pb\n", 3);
 }
-
-

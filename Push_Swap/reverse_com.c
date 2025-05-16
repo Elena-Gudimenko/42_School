@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:58:49 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/14 13:44:18 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/16 15:55:20 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	reverse_rotate(t_stack_node **stack)
 	int				len;
 
 	len = stack_len(*stack);
-	if (NULL == *stack || NULL == stack || 1 == len)
+	if (*stack == NULL || stack == NULL || len == 1)
 		return ;
 	last = find_last_node(*stack);
 	last->prev->next = NULL;

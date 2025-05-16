@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:40:57 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/14 11:05:50 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/16 14:46:02 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ static long	ft_atol(const char *str)
 	num = 0;
 	sign = 1;
 	i = 0;
-	while (str[i] && (str[i] == ' ' || str[i] == '\t'
-			|| str[i] == '\n' || str[i] == '\r'
-			|| str[i] == '\v' || str[i] == '\f'))
+	while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
+			|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f'))
 		i++;
 	if (str[i] == '+')
 		i++;
@@ -36,6 +35,8 @@ static long	ft_atol(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		num = (num * 10) + (str[i] - '0');
+		if (num * sign > INT_MAX || num * sign < INT_MIN)
+			return (999999999999999999);
 		i++;
 	}
 	return (num * sign);
@@ -66,7 +67,7 @@ void	append_node(t_stack_node **stack, int nbr)
 	}
 }
 
-void	stack_init(t_stack_node **a, char **argv, bool flag_agrc_2)
+void	stack_init(t_stack_node **a, char **argv, bool flag_argc_2)
 {
 	long	nbr;
 	int		i;
@@ -75,15 +76,15 @@ void	stack_init(t_stack_node **a, char **argv, bool flag_agrc_2)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			error_free(a, argv, flag_agrc_2);
+			error_free(a, argv, flag_argc_2);
 		nbr = ft_atol(argv[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
-			error_free(a, argv, flag_agrc_2);
+			error_free(a, argv, flag_argc_2);
 		if (error_duplicate(*a, (int)nbr))
-			error_free(a, argv, flag_agrc_2);
+			error_free(a, argv, flag_argc_2);
 		append_node(a, (int)nbr);
 		++i;
 	}
-	if (flag_agrc_2)
+	if (flag_argc_2)
 		free_matrix(argv);
 }
