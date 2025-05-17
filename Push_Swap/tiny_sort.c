@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 10:27:17 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/16 15:20:43 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/16 17:53:31 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,3 @@ void	sort_five(t_stack_node **a, t_stack_node **b)
 		pb(b, a, false);
 	}
 }
-

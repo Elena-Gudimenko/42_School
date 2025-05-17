@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:40:57 by elvictor          #+#    #+#             */
-/*   Updated: 2025/05/16 14:46:02 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/05/16 19:25:29 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	append_node(t_stack_node **stack, int nbr)
 		return ;
 	node->next = NULL;
 	node->value = nbr;
+	node->cheapest = false;
 	if (*stack == NULL)
 	{
 		*stack = node;
