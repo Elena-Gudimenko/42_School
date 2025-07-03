@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 19:53:13 by elvictor          #+#    #+#             */
-/*   Updated: 2025/07/02 19:14:53 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/07/03 16:07:48 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 typedef pthread_mutex_t t_mtx;
 typedef struct s_table t_table;
 
-typedef struct  s_forkerrors checking, filling table
+typedef struct  s_fork
 {
     t_mtx       fork;
     int         fork_id;
@@ -62,3 +62,4 @@ struct  s_table
 };
 
 void    error_exit(const char *error);
+void	parse_input(t_table *table, char **av);
