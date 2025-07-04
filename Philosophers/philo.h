@@ -6,7 +6,7 @@
 /*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 19:53:13 by elvictor          #+#    #+#             */
-/*   Updated: 2025/07/03 16:07:48 by elvictor         ###   ########.fr       */
+/*   Updated: 2025/07/04 15:26:29 by elvictor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,17 @@
 # define M      "\033[1;35m"
 # define C      "\033[1;36m"
 # define W      "\033[1;37m"
+
+typedef enum e_opcode
+{
+    LOCK,
+    UNLOCK,
+    INIT,
+    DESTROY,
+    CREATE,
+    JOIN,
+    DETACH,
+}           t_opcode;
 
 typedef pthread_mutex_t t_mtx;
 typedef struct s_table t_table;
