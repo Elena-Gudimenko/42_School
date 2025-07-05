@@ -3,35 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elvictor <elvictor@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gyasuhir <gyasuhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/05 17:28:58 by elvictor          #+#    #+#             */
-/*   Updated: 2025/07/05 17:43:07 by elvictor         ###   ########.fr       */
+/*   Created: 2025/06/25 20:42:20 by gyasuhir          #+#    #+#             */
+/*   Updated: 2025/07/05 14:58:27 by gyasuhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../include/philo.h"
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
-	if (ac == 5 || ac == 6)
+	t_table	table;
+
+	if (argc == 5 || argc == 6)
 	{
-		/*parse_input(&table, av);
-		data_init(&table);
+		parse_input(&table, argv);
+		init_data(&table);
 		dinner_start(&table);
-		clean(&table);*/
-    printf("Program arguments:\n");
-    printf("Number of philosophers: %s\n", av[1]);
-    printf("Time to die: %s ms\n", av[2]);
-    printf("Time to eat: %s ms\n", av[3]);
-    printf("Time to sleep: %s ms\n", av[4]);
-    
+		clean_all(&table);
 	}
 	else
 	{
 		error_exit("Wrong input:\n"
-			G"Correct is ./philo 5 800 200 200 [5]"RST);
+			"Correct is ./philo 5 800 200 200 [5]");
 	}
-   
-    return (0);
 }
